@@ -22,7 +22,6 @@
 
 import sys
 import config
-from DISClib.ADT import list as lt
 from App import controller
 assert config
 
@@ -74,7 +73,6 @@ while True:
 
     elif int(inputs[0]) == 3:
         print("\nBuscando crimenes en un rango de fechas: ")
-
 
     elif int(inputs[0]) == 4:
         print("\nRequerimiento No 1 del reto 3: ")
