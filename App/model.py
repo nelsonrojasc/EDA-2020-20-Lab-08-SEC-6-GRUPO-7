@@ -21,7 +21,6 @@
  """
 import config
 from DISClib.ADT import list as lt
-from DISClib.DataStructures import listiterator as it
 from DISClib.ADT import orderedmap as om
 from DISClib.DataStructures import mapentry as me
 from DISClib.ADT import map as m
@@ -39,14 +38,31 @@ es decir contiene los modelos con los datos en memoria
 # API del TAD Catalogo de accidentes
 # -----------------------------------------------------
 
+def newTree(cmpfunction):
+    return om.newMap(omaptype='BST',comparefunction=cmpfunction)
+
+def newList(cmpfunction,type='SINGLE_LINKED'):
+    return lt.newList(type,cmpfunction)
+
+def newHash(numelements=503,type='CHAINING',loadFactor=2,comparefunction=None):
+    return m.newMap(numelements=numelements,maptype=type,loadfactor=loadFactor,comparefunction=comparefunction)
 
 # Funciones para agregar informacion al catalogo
 
+def addListAccident(lst,accident):
+    lt.addFirst(lst,accident)
+
+def addTreeNode(tree,key,value):
+    om.put(tree,key,value)
 
 # ==============================
 # Funciones de consulta
 # ==============================
+def getTreeKey(tree,key):
+    return om.get(tree,key)
 
+def getTreeAllKeys(tree):
+    return om.keySet(tree)
 
 # ==============================
 # Funciones de Comparacion
